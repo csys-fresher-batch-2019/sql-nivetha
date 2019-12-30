@@ -9,7 +9,7 @@
 ### Feature 1:List of all movie name
 ```sql
 create table movie_list(
-theatre_id number not null,
+theatre_id number ,
 movie_name varchar2(100) not null,
 movie_category varchar2(100) not null,
 constraint theatre_id_pk primary key (theatre_id)
