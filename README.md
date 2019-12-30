@@ -53,5 +53,12 @@ insert into  customer_table(user_name,mob_no,city,email_id,pass_word,members,roo
 2,'nonac','double');
 select *from customer_table;
 ```
+create table login_table(
+login_id varchar2(100) not null,
+email varchar2(100) not null,
+pass varchar2(100)not null,
+constraint email_fk foreign key (email) references customer_table(email_id),
+constraint pass_fk foreign key (pass) references customer_table(pass_word)
+);
 
 
