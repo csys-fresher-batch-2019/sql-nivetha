@@ -12,7 +12,7 @@ create table movie_list(
 theatre_id number not null,
 movie_name varchar2(100) not null,
 movie_category varchar2(100) not null,
-constraint movie_id_pk primary key (movie_id)
+constraint theatre_id_pk primary key (theatre_id)
 );
 ```
 * Query
