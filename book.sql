@@ -77,4 +77,14 @@ from book b;
 select book_name,
 ((select sum(quan) from stock where bo_id=b.book_id)-(select sum(quantity) from order_item where bk_id=b.book_id))
 as ava_val
+ select  book_name ,order_date  from book u inner join orders b on u.book_id=b.book_id;
+
+select  author_name ,order_date  from book u left outer join orders b on u.book_id=b.book_id;
+
+select  book_name ,order_date  from book u right outer join orders b on u.book_id=b.book_id;
+
+select  book_name ,deliver_date  from book u full outer join orders b on u.book_id=b.book_id;
+                                                     
+                                                      
+                                                      
 from book b;
