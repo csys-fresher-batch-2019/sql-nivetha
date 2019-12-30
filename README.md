@@ -12,7 +12,8 @@ create table movie_list(
 theatre_id number ,
 movie_name varchar2(100) not null,
 movie_category varchar2(100) not null,
-constraint theatre_id_pk primary key (theatre_id)
+constraint theatre_id_pk primary key (theatre_id),
+constraint movie_category_ck check( movie_category in 'tamil','english','telugu','hindi','malayalam')
 );
 ```
 * Query
