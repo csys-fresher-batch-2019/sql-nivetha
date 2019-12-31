@@ -36,7 +36,7 @@ select *from hotel;
 | 101      | three star  | ooty       | 3      | avaliable     |
 | 102      | deepam inn  | coimbatore | 4      | not avaliable |
 ```
-#### Feature 2:Customer details
+#### Feature 2:Displaying customer details
 ```sql
 create table customer_table(
 user_name varchar2(100) not null,
@@ -61,7 +61,7 @@ select *from customer_table;
 | ravi      | 9500349785 | chennai   | zxy@gmail.com   | were      |
 | venkat    | 9837526709 | kerala    | abceg@gmail.com | abcth     |
 ```
-## Feature 3:room type
+## Feature 3:Displaying booking time and facility of rooms
 ```sql
 create table room(
 members number not null,
