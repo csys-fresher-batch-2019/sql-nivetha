@@ -54,6 +54,13 @@ insert into  customer_table(user_name,mob_no,city,email_id,pass_word)values('rav
 insert into  customer_table(user_name,mob_no,city,email_id,pass_word)values('venkat',9837526709,'kerala','abceg@gmail.com','abcth');
 select *from customer_table;
 ```
+```sql
+| USER_NAME | MOB_NO     | CITY      | EMAIL_ID        | PASS_WORD |
+|-----------|------------|-----------|-----------------|-----------|
+| riya      | 9600249285 | bangalore | abcd@gmail.com  | abc       |
+| ravi      | 9500349785 | chennai   | zxy@gmail.com   | were      |
+| venkat    | 9837526709 | kerala    | abceg@gmail.com | abcth     |
+```
 ## Feature 3:room type
 ```sql
 create table room(
