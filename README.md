@@ -28,7 +28,7 @@ insert into hotel(hotel_id,hotel_name,loaction,rating,status)values(102,'deepam 
 
 select *from hotel;
 ```
-#### Feature 2:List of room
+#### Feature 2:Customer details
 ```sql
 create table customer_table(
 user_name varchar2(100) not null,
@@ -52,6 +52,8 @@ create table room(
 members number not null,
 room_type varchar2(100),
 bed_type varchar2(100),
+from_date timestamp not null,
+to__date timestamp not null,
 constraint members_ck check(members<=4),
 constraint room_type_ck check(room_type in ('ac','nonac')),
 constraint bed_type_ck check(bed_type in ('single','double','triple'))
@@ -59,9 +61,9 @@ constraint bed_type_ck check(bed_type in ('single','double','triple'))
 ```
 * Query
 ```sql
-insert into (members,room_type,bed_type)values(2,'ac','double');
-insert into (members,room_type,bed_type)values(3,'nonac','triple');
-insert into (members,room_type,bed_type)values(1,'nonac','single');
+insert into room(members,room_type,bed_type,from_date,to__date)values(2,'ac','double',timestamp '2019-12-26 11:50:10',timestamp '2019-12-27 11:50:10');
+insert into room(members,room_type,bed_type,from_date,to__date)values(3,'nonac','triple',timestamp '2019-12-10 11:50:10',timestamp '2019-12-12 11:50:10');
+insert into room(members,room_type,bed_type,from_date,to__date)values(1,'nonac','single',timestamp '2019-12-28 11:50:10',timestamp '2019-12-30 11:50:10');
 
 select *from room;
 
