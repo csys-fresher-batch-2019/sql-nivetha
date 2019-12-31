@@ -16,8 +16,8 @@
 
 
 ## room
-| MEMBERS | ROOM_TYPE | BED_TYPE |
-|---------|-----------|----------|
-| 2       | ac        | double   |
-| 3       | nonac     | triple   |
-| 1       | nonac     | single   |
+| MEMBERS | ROOM_TYPE | BED_TYPE | FROM_DATE                    | TO__DATE                     |
+|---------|-----------|----------|------------------------------|------------------------------|
+| 2       | ac        | double   | 26-DEC-19 11.50.10.000000 AM | 27-DEC-19 11.50.10.000000 AM |
+| 3       | nonac     | triple   | 10-DEC-19 11.50.10.000000 AM | 12-DEC-19 11.50.10.000000 AM |
+| 1       | nonac     | single   | 28-DEC-19 11.50.10.000000 AM | 30-DEC-19 11.50.10.000000 AM |
