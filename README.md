@@ -81,6 +81,14 @@ insert into room(members,room_type,bed_type,from_date,to__date)values(3,'nonac',
 insert into room(members,room_type,bed_type,from_date,to__date)values(1,'nonac','single',timestamp '2019-12-28 11:50:10',timestamp '2019-12-30 11:50:10');
 
 select *from room;
+```
+```sql
+| MEMBERS | ROOM_TYPE | BED_TYPE | FROM_DATE                    | TO__DATE                     |
+|---------|-----------|----------|------------------------------|------------------------------|
+| 2       | ac        | double   | 26-DEC-19 11.50.10.000000 AM | 27-DEC-19 11.50.10.000000 AM |
+| 3       | nonac     | triple   | 10-DEC-19 11.50.10.000000 AM | 12-DEC-19 11.50.10.000000 AM |
+| 1       | nonac     | single   | 28-DEC-19 11.50.10.000000 AM | 30-DEC-19 11.50.10.000000 AM |
 
+```
 
 
