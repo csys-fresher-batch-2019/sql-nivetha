@@ -11,7 +11,7 @@
 create table hotel(
 hotel_id number not null,
 hotel_name varchar2(100) not null,
-loaction varchar2(100) not null,
+location varchar2(100) not null,
 rating number not null,
 status varchar2(100),
 constraint hotel_id_pk primary key (hotel_id),
@@ -22,9 +22,9 @@ constraint status_ck check(status in ('avaliable','not avaliable'))
 ```
 * Query
 ```sql
-insert into hotel(hotel_id,hotel_name,loaction,rating,status)values(100,'five star','chennai',4,'avaliable');
-insert into hotel(hotel_id,hotel_name,loaction,rating,status)values(101,'three star','ooty',3,'avaliable');
-insert into hotel(hotel_id,hotel_name,loaction,rating,status)values(102,'deepam inn','coimbatore',4,'not avaliable');
+insert into hotel(hotel_id,hotel_name,location,rating,status)values(100,'five star','chennai',4,'avaliable');
+insert into hotel(hotel_id,hotel_name,location,rating,status)values(101,'three star','ooty',3,'avaliable');
+insert into hotel(hotel_id,hotel_name,location,rating,status)values(102,'deepam inn','coimbatore',4,'not avaliable');
 
 select *from hotel;
 ```
@@ -90,5 +90,16 @@ select *from room;
 | 1       | nonac     | single   | 28-DEC-19 11.50.10.000000 AM | 30-DEC-19 11.50.10.000000 AM |
 
 ```
-
-
+## Features :4 Displaying payment details
+```sql
+create table room(
+members number not null,
+room_type varchar2(100),
+bed_type varchar2(100),
+from_date timestamp not null,
+to__date timestamp not null,
+constraint members_ck check(members<=4),
+constraint room_type_ck check(room_type in ('ac','nonac')),
+constraint bed_type_ck check(bed_type in ('single','double','triple'))
+);
+```
