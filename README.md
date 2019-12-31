@@ -28,6 +28,14 @@ insert into hotel(hotel_id,hotel_name,loaction,rating,status)values(102,'deepam 
 
 select *from hotel;
 ```
+```sql
+
+| HOTEL_ID | HOTEL_NAME  | LOACTION   | RATING | STATUS        |
+|----------|-------------|------------|--------|---------------|
+| 100      | five star   | chennai    | 4      | avaliable     |
+| 101      | three star  | ooty       | 3      | avaliable     |
+| 102      | deepam inn  | coimbatore | 4      | not avaliable |
+```
 #### Feature 2:Customer details
 ```sql
 create table customer_table(
