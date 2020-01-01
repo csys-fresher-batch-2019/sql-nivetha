@@ -69,37 +69,27 @@ room_type varchar2(100),
 bed_type varchar2(100),
 from_date timestamp not null,
 to__date timestamp not null,
+payment varchar2(100)not null,
 constraint members_ck check(members<=4),
 constraint room_type_ck check(room_type in ('ac','nonac')),
-constraint bed_type_ck check(bed_type in ('single','double','triple'))
+constraint bed_type_ck check(bed_type in ('single','double','triple')),
+constraint payment_ck check(payment in ('paid','not paid'))
 );
 ```
 * Query
 ```sql
-insert into room(members,room_type,bed_type,from_date,to__date)values(2,'ac','double',timestamp '2019-12-26 11:50:10',timestamp '2019-12-27 11:50:10');
-insert into room(members,room_type,bed_type,from_date,to__date)values(3,'nonac','triple',timestamp '2019-12-10 11:50:10',timestamp '2019-12-12 11:50:10');
-insert into room(members,room_type,bed_type,from_date,to__date)values(1,'nonac','single',timestamp '2019-12-28 11:50:10',timestamp '2019-12-30 11:50:10');
+insert into room(members,room_type,bed_type,from_date,to__date,payment)values(2,'ac','double',timestamp '2019-12-26 11:50:10',timestamp '2019-12-27 11:50:10','paid');
+insert into room(members,room_type,bed_type,from_date,to__date,payment)values(3,'nonac','triple',timestamp '2019-12-10 11:50:10',timestamp '2019-12-12 11:50:10','not paid');
+insert into room(members,room_type,bed_type,from_date,to__date,payment)values(1,'nonac','single',timestamp '2019-12-28 11:50:10',timestamp '2019-12-30 11:50:10','paid');
 
 select *from room;
 ```
 ```sql
-| MEMBERS | ROOM_TYPE | BED_TYPE | FROM_DATE                    | TO__DATE                     |
-|---------|-----------|----------|------------------------------|------------------------------|
-| 2       | ac        | double   | 26-DEC-19 11.50.10.000000 AM | 27-DEC-19 11.50.10.000000 AM |
-| 3       | nonac     | triple   | 10-DEC-19 11.50.10.000000 AM | 12-DEC-19 11.50.10.000000 AM |
-| 1       | nonac     | single   | 28-DEC-19 11.50.10.000000 AM | 30-DEC-19 11.50.10.000000 AM |
+| MEMBERS | ROOM_TYPE | BED_TYPE | FROM_DATE                    | TO__DATE                     | PAYMENT  |
+|---------|-----------|----------|------------------------------|------------------------------|----------|
+| 2       | ac        | double   | 26-DEC-19 11.50.10.000000 AM | 27-DEC-19 11.50.10.000000 AM | paid     |
+| 3       | nonac     | triple   | 10-DEC-19 11.50.10.000000 AM | 12-DEC-19 11.50.10.000000 AM | not paid |
+| 1       | nonac     | single   | 28-DEC-19 11.50.10.000000 AM | 30-DEC-19 11.50.10.000000 AM | paid     |
 
 ```
-## Features :4 Displaying payment details
-```sql
-create table room(
-members number not null,
-room_type varchar2(100),
-bed_type varchar2(100),
-from_date timestamp not null,
-to__date timestamp not null,
-constraint members_ck check(members<=4),
-constraint room_type_ck check(room_type in ('ac','nonac')),
-constraint bed_type_ck check(bed_type in ('single','double','triple'))
-);
-```
+
