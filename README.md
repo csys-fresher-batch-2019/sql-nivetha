@@ -66,12 +66,14 @@ select *from customer_table;
 ## Feature 3:Displaying booking time and facility of rooms
 ```sql
 create table room(
+us_er number not null,
 members number not null,
 room_type varchar2(100),
 bed_type varchar2(100),
 check_in timestamp not null,
 check_out timestamp not null,
 payment varchar2(100)not null,
+constraint us_er_fk foreign key (us_er) references customer_table(user_id),
 constraint members_ck check(members<=4),
 constraint room_type_ck check(room_type in ('ac','nonac')),
 constraint bed_type_ck check(bed_type in ('single','double','triple')),
@@ -80,18 +82,16 @@ constraint payment_ck check(payment in ('paid','not paid'))
 ```
 * Query
 ```sql
-insert into room(members,room_type,bed_type,check_in,check_out,payment)values(2,'ac','double',timestamp '2019-12-26 11:50:10',timestamp '2019-12-27 11:50:10','paid');
-insert into room(members,room_type,bed_type,check_in,check_out,payment)values(3,'nonac','triple',timestamp '2019-12-10 11:50:10',timestamp '2019-12-12 11:50:10','not paid');
-insert into room(members,room_type,bed_type,check_in,check_out,payment)values(1,'nonac','single',timestamp '2019-12-28 11:50:10',timestamp '2019-12-30 11:50:10','paid');
-
+insert into room(us_er,members,room_type,bed_type,check_in,check_out,payment)values(1,2,'ac','double',timestamp '2019-12-26 11:50:10',timestamp '2019-12-27 11:50:10','paid');
+insert into room(us_er,members,room_type,bed_type,check_in,check_out,payment)values(2,3,'nonac','triple',timestamp '2019-12-10 11:50:10',timestamp '2019-12-12 11:50:10','not paid');
+insert into room(us_er,members,room_type,bed_type,check_in,check_out,payment)values(3,1,'nonac','single',timestamp '2019-12-28 11:50:10',timestamp '2019-12-30 11:50:10','paid');
 select *from room;
 ```
 ```sql
-| MEMBERS | ROOM_TYPE | BED_TYPE |CHECK_IN                      | CHECK_OUT                    | PAYMENT  |
-|---------|-----------|----------|------------------------------|------------------------------|----------|
-| 2       | ac        | double   | 26-DEC-19 11.50.10.000000 AM | 27-DEC-19 11.50.10.000000 AM | paid     |
-| 3       | nonac     | triple   | 10-DEC-19 11.50.10.000000 AM | 12-DEC-19 11.50.10.000000 AM | not paid |
-| 1       | nonac     | single   | 28-DEC-19 11.50.10.000000 AM | 30-DEC-19 11.50.10.000000 AM | paid     |
-
+| US_ER | MEMBERS | ROOM_TYPE | BED_TYPE | CHECK_IN                     | CHECK_OUT                    | PAYMENT  |
+|-------|---------|-----------|----------|------------------------------|------------------------------|----------|
+| 1     | 2       | ac        | double   | 26-DEC-19 11.50.10.000000 AM | 27-DEC-19 11.50.10.000000 AM | paid     |
+| 2     | 3       | nonac     | triple   | 10-DEC-19 11.50.10.000000 AM | 12-DEC-19 11.50.10.000000 AM | not paid |
+| 3     | 1       | nonac     | single   | 28-DEC-19 11.50.10.000000 AM | 30-DEC-19 11.50.10.000000 AM | paid     |
 ```
 
