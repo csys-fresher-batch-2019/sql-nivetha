@@ -10,11 +10,13 @@
 ```sql
 create table hotel(
 hotel_id number not null,
+user_id number not null,
 hotel_name varchar2(100) not null,
 location varchar2(100) not null,
 rating number not null,
 status varchar2(100),
 constraint hotel_id_pk primary key (hotel_id),
+constraint user_id_fk foreign key (user_id) references customer_table(user_id),
 constraint rating_ck check(rating <=5),
 constraint status_ck check(status in ('avaliable','not avaliable'))
 );
