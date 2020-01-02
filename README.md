@@ -10,13 +10,12 @@
 ```sql
 create table hotel(
 hotel_id number not null,
-user_id number not null,
+ur_id number not null,
 hotel_name varchar2(100) not null,
 location varchar2(100) not null,
 rating number not null,
 status varchar2(100),
-constraint hotel_id_pk primary key (hotel_id),
-constraint user_id_fk foreign key (user_id) references customer_table(user_id),
+constraint ur_id_pk primary key (ur_id),
 constraint rating_ck check(rating <=5),
 constraint status_ck check(status in ('avaliable','not avaliable'))
 );
@@ -24,19 +23,19 @@ constraint status_ck check(status in ('avaliable','not avaliable'))
 ```
 * Query
 ```sql
-insert into hotel(hotel_id,hotel_name,location,rating,status)values(100,'five star','chennai',4,'avaliable');
-insert into hotel(hotel_id,hotel_name,location,rating,status)values(101,'three star','ooty',3,'avaliable');
-insert into hotel(hotel_id,hotel_name,location,rating,status)values(102,'deepam inn','coimbatore',4,'not avaliable');
+insert into hotel(hotel_id,ur_id,hotel_name,location,rating,status)values(100,1,'five star','chennai',4,'avaliable');
+insert into hotel(hotel_id,ur_id,hotel_name,location,rating,status)values(101,2,'three star','ooty',3,'avaliable');
+insert into hotel(hotel_id,ur_id,hotel_name,location,rating,status)values(102,3,'deepam inn','coimbatore',4,'not avaliable');
 
 select *from hotel;
 ```
 ```sql
+| HOTEL_ID | UR_ID | HOTEL_NAME | LOCATION   | RATING | STATUS        |   |
+|----------|-------|------------|------------|--------|---------------|---|
+| 100      | 1     | five star  | chennai    | 4      | avaliable     |   |
+| 101      | 2     | three star | ooty       | 3      | avaliable     |   |
+| 102      | 3     | deepam inn | coimbatore | 4      | not avaliable |   |
 
-| HOTEL_ID | HOTEL_NAME  | LOACTION   | RATING | STATUS        |
-|----------|-------------|------------|--------|---------------|
-| 100      | five star   | chennai    | 4      | avaliable     |
-| 101      | three star  | ooty       | 3      | avaliable     |
-| 102      | deepam inn  | coimbatore | 4      | not avaliable |
 ```
 ```sql
 select hotel_name,location,rating from hotel;
@@ -50,7 +49,7 @@ mob_no number not null,
 city varchar2(100) not null,
 email_id varchar2(100) not null,
 pass_word varchar2(100) not null,
-constraint user_id_pk primary key (user_id)
+constraint user_id_fk foreign key (user_id) references hotel(ur_id),
 );
 ```
 * Query
@@ -78,7 +77,7 @@ bed_type varchar2(100),
 check_in timestamp not null,
 check_out timestamp not null,
 payment varchar2(100)not null,
-constraint us_er_fk foreign key (us_er) references customer_table(user_id),
+constraint us_er_fk foreign key (us_er) references hotel(ur_id),
 constraint members_ck check(members<=4),
 constraint room_type_ck check(room_type in ('ac','nonac')),
 constraint bed_type_ck check(bed_type in ('single','double','triple')),
