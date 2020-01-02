@@ -99,52 +99,106 @@ select *from room;
 ```sql
 select hotel_name,location,rating from hotel;
 ```
+```sql
+| HOTEL_NAME | LOCATION   | RATING |
+|------------|------------|--------|
+| five star  | chennai    | 4      |
+| three star | ooty       | 3      |
+| deepam inn | coimbatore | 4      |
+```
 
 *Displaying  all username and hotel name.
 ```sql
 select c.user_name ,h.hotel_name from customer_table c inner join hotel h on c.user_id=h.ur_id;
+```
+```sql
+| USER_NAME | HOTEL_NAME |
+|-----------|------------|
+| riya      | five star  |
+| ravi      | three star |
+| venkat    | deepam inn |
 ```
 
 *Displaying  all hotel name and their room types.
 ```sql
 select c.hotel_name ,h.room_type from hotel c inner join room h on c.ur_id=h.us_er;
 ```
+```sql
+| HOTEL_NAME | ROOM_TYPE |
+|------------|-----------|
+| five star  | ac        |
+| three star | nonac     |
+| deepam inn | nonac     |
+```
 
 *Displaying  all hotel names,user id,members,room_type,bed_type and payment details.
 ```sql
 select c.hotel_name,r.us_er,r.members,r.room_type,r.bed_type,r.payment from hotel c right outer join room r on c.ur_id=r.us_er;
 ```
+```sql
+| HOTEL_NAME | US_ER | MEMBERS | ROOM_TYPE | BED_TYPE | PAYMENT  |
+|------------|-------|---------|-----------|----------|----------|
+| five star  | 1     | 2       | ac        | double   | paid     |
+| three star | 2     | 3       | nonac     | triple   | not paid |
+| deepam inn | 3     | 1       | nonac     | single   | paid     |
+```
 *Displaying hotel names with their ratings.
 ```sql
 select hotel_name,rating from hotel where rating=3;
+```
+```sql
+| HOTEL_NAME | RATING |
+|------------|--------|
+| three star | 3      |
 ```
 
 *Displaying hotel names and rating with their loaction.
 ```sql
 select hotel_name,location,rating from hotel  where location= 'chennai';
 ```
+```sql
+| HOTEL_NAME | LOCATION | RATING |
+|------------|----------|--------|
+| five star  | chennai  | 4      |
+```
 
 *Displaying hotel names and location with their userid.
 ```sql
 select hotel_name,location from hotel where ur_id=3;
+```
+```sql
+| HOTEL_NAME | LOCATION   |
+|------------|------------|
+| deepam inn | coimbatore |
 ```
 
 *Displaying username and mobile number with their city.
 ```sql
 select user_name,mob_no,city from customer_table where city='bangalore';
 ```
+```sql
+| USER_NAME | MOB_NO     | CITY      |
+|-----------|------------|-----------|
+| riya      | 9600249285 | bangalore |
+```
 
 *Displaying userid,username and city with their emailid.
 ```sql
 select user_id,user_name,city,email_id from customer_table where email_id='abceg@gmail.com';
+```
+```sql
+| USER_ID | USER_NAME | CITY   | EMAIL_ID        |
+|---------|-----------|--------|-----------------|
+| 3       | venkat    | kerala | abceg@gmail.com |
 ```
 
 *Displaying members,room_type,bed_type and payment with their roomtype.
 ```sql
 select members,room_type,bed_type,payment from room where room_type='ac';
 ```
-
-*Displaying members,roomtype,checkin,checkout and payment with their userid.
 ```sql
-select members,room_type,check_in,check_out,payment from room where us_er=3;
+| MEMBERS | ROOM_TYPE | BED_TYPE | PAYMENT |
+|---------|-----------|----------|---------|
+| 2       | ac        | double   | paid    |
 ```
+
