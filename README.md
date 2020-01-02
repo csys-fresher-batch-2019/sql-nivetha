@@ -30,11 +30,11 @@ insert into hotel(hotel_id,ur_id,hotel_name,location,rating,status)values(102,3,
 select *from hotel;
 ```
 ```sql
-| HOTEL_ID | UR_ID | HOTEL_NAME | LOCATION   | RATING | STATUS        |   |
-|----------|-------|------------|------------|--------|---------------|---|
-| 100      | 1     | five star  | chennai    | 4      | avaliable     |   |
-| 101      | 2     | three star | ooty       | 3      | avaliable     |   |
-| 102      | 3     | deepam inn | coimbatore | 4      | not avaliable |   |
+| HOTEL_ID | UR_ID | HOTEL_NAME | LOCATION   | RATING | STATUS        |
+|----------|-------|------------|------------|--------|---------------|
+| 100      | 1     | five star  | chennai    | 4      | avaliable     |
+| 101      | 2     | three star | ooty       | 3      | avaliable     |
+| 102      | 3     | deepam inn | coimbatore | 4      | not avaliable |
 
 ```
 #### Feature 2:Displaying customer details
