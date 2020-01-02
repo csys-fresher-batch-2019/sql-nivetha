@@ -37,9 +37,6 @@ select *from hotel;
 | 102      | 3     | deepam inn | coimbatore | 4      | not avaliable |   |
 
 ```
-```sql
-select hotel_name,location,rating from hotel;
-```
 #### Feature 2:Displaying customer details
 ```sql
 create table customer_table(
@@ -98,4 +95,56 @@ select *from room;
 | 2     | 3       | nonac     | triple   | 10-DEC-19 11.50.10.000000 AM | 12-DEC-19 11.50.10.000000 AM | not paid |
 | 3     | 1       | nonac     | single   | 28-DEC-19 11.50.10.000000 AM | 30-DEC-19 11.50.10.000000 AM | paid     |
 ```
+*Displaying all hotel name,location,rating.
+```sql
+select hotel_name,location,rating from hotel;
+```
 
+*Displaying  all username and hotel name.
+```sql
+select c.user_name ,h.hotel_name from customer_table c inner join hotel h on c.user_id=h.ur_id;
+```
+
+*Displaying  all hotel name and their room types.
+```sql
+select c.hotel_name ,h.room_type from hotel c inner join room h on c.ur_id=h.us_er;
+```
+
+*Displaying  all hotel names,user id,members,room_type,bed_type and payment details.
+```sql
+select c.hotel_name,r.us_er,r.members,r.room_type,r.bed_type,r.payment from hotel c right outer join room r on c.ur_id=r.us_er;
+```
+*Displaying hotel names with their ratings.
+```sql
+select hotel_name,rating from hotel where rating=3;
+```
+
+*Displaying hotel names and rating with their loaction.
+```sql
+select hotel_name,location,rating from hotel  where location= 'chennai';
+```
+
+*Displaying hotel names and location with their userid.
+```sql
+select hotel_name,location from hotel where ur_id=3;
+```
+
+*Displaying username and mobile number with their city.
+```sql
+select user_name,mob_no,city from customer_table where city='bangalore';
+```
+
+*Displaying userid,username and city with their emailid.
+```sql
+select user_id,user_name,city,email_id from customer_table where email_id='abceg@gmail.com';
+```
+
+*Displaying members,room_type,bed_type and payment with their roomtype.
+```sql
+select members,room_type,bed_type,payment from room where room_type='ac';
+```
+
+*Displaying members,roomtype,checkin,checkout and payment with their userid.
+```sql
+select members,room_type,check_in,check_out,payment from room where us_er=3;
+```
