@@ -36,6 +36,9 @@ select *from hotel;
 | 101      | three star  | ooty       | 3      | avaliable     |
 | 102      | deepam inn  | coimbatore | 4      | not avaliable |
 ```
+```sql
+select hotel_name,location,rating from hotel;
+```
 #### Feature 2:Displaying customer details
 ```sql
 create table customer_table(
