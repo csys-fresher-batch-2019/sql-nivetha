@@ -133,14 +133,14 @@ select c.hotel_name ,h.room_type from hotel c inner join room h on c.ur_id=h.us_
 
 *Displaying  all hotel names,user id,members,room_type,bed_type and payment details.
 ```sql
-select c.hotel_name,r.us_er,r.members,r.room_type,r.bed_type,r.payment from hotel c right outer join room r on c.ur_id=r.us_er;
+select c.hotel_name,r.us_er,r.members,r.room_type,r.bed_typefrom hotel c right outer join room r on c.ur_id=r.us_er;
 ```
 ```sql
-| HOTEL_NAME | US_ER | MEMBERS | ROOM_TYPE | BED_TYPE | PAYMENT  |
-|------------|-------|---------|-----------|----------|----------|
-| five star  | 1     | 2       | ac        | double   | paid     |
-| three star | 2     | 3       | nonac     | triple   | not paid |
-| deepam inn | 3     | 1       | nonac     | single   | paid     |
+| HOTEL_NAME | US_ER | MEMBERS | ROOM_TYPE | BED_TYPE | 
+|------------|-------|---------|-----------|----------|
+| five star  | 1     | 2       | ac        | double   | 
+| three star | 2     | 3       | nonac     | triple   | 
+| deepam inn | 3     | 1       | nonac     | single   | 
 ```
 *Displaying hotel names with their ratings.
 ```sql
