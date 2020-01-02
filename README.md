@@ -39,27 +39,29 @@ select *from hotel;
 #### Feature 2:Displaying customer details
 ```sql
 create table customer_table(
+user_id number not null,
 user_name varchar2(100) not null,
 mob_no number not null,
 city varchar2(100) not null,
 email_id varchar2(100) not null,
 pass_word varchar2(100) not null,
-constraint email_id_pk primary key (email_id)
+constraint user_id_pk primary key (user_id)
 );
 ```
 * Query
 ```sql
-insert into  customer_table(user_name,mob_no,city,email_id,pass_word)values('riya',9600249285,'bangalore','abcd@gmail.com','abc');
-insert into  customer_table(user_name,mob_no,city,email_id,pass_word)values('ravi',9500349785,'chennai','zxy@gmail.com','were');
-insert into  customer_table(user_name,mob_no,city,email_id,pass_word)values('venkat',9837526709,'kerala','abceg@gmail.com','abcth');
+insert into customer_table(user_id,user_name,mob_no,city,email_id,pass_word)values(1,'riya',9600249285,'bangalore','abcd@gmail.com','abc');
+insert into  customer_table(user_id,user_name,mob_no,city,email_id,pass_word)values(2,'ravi',9500349785,'chennai','zxy@gmail.com','were');
+insert into  customer_table(user_id,user_name,mob_no,city,email_id,pass_word)values(3,'venkat',9837526709,'kerala','abceg@gmail.com','abcth');
+
 select *from customer_table;
 ```
 ```sql
-| USER_NAME | MOB_NO     | CITY      | EMAIL_ID        | PASS_WORD |
-|-----------|------------|-----------|-----------------|-----------|
-| riya      | 9600249285 | bangalore | abcd@gmail.com  | abc       |
-| ravi      | 9500349785 | chennai   | zxy@gmail.com   | were      |
-| venkat    | 9837526709 | kerala    | abceg@gmail.com | abcth     |
+| USER_ID | USER_NAME | MOB_NO     | CITY      | EMAIL_ID        | PASS_WORD |
+|---------|-----------|------------|-----------|-----------------|-----------|
+| 1       | riya      | 9600249285 | bangalore | abcd@gmail.com  | abc       |
+| 2       | ravi      | 9500349785 | chennai   | zxy@gmail.com   | were      |
+| 3       | venkat    | 9837526709 | kerala    | abceg@gmail.com | abcth     |
 ```
 ## Feature 3:Displaying booking time and facility of rooms
 ```sql
@@ -67,8 +69,8 @@ create table room(
 members number not null,
 room_type varchar2(100),
 bed_type varchar2(100),
-from_date timestamp not null,
-to__date timestamp not null,
+check_in timestamp not null,
+check_out timestamp not null,
 payment varchar2(100)not null,
 constraint members_ck check(members<=4),
 constraint room_type_ck check(room_type in ('ac','nonac')),
@@ -78,14 +80,14 @@ constraint payment_ck check(payment in ('paid','not paid'))
 ```
 * Query
 ```sql
-insert into room(members,room_type,bed_type,from_date,to__date,payment)values(2,'ac','double',timestamp '2019-12-26 11:50:10',timestamp '2019-12-27 11:50:10','paid');
-insert into room(members,room_type,bed_type,from_date,to__date,payment)values(3,'nonac','triple',timestamp '2019-12-10 11:50:10',timestamp '2019-12-12 11:50:10','not paid');
-insert into room(members,room_type,bed_type,from_date,to__date,payment)values(1,'nonac','single',timestamp '2019-12-28 11:50:10',timestamp '2019-12-30 11:50:10','paid');
+insert into room(members,room_type,bed_type,check_in,check_out,payment)values(2,'ac','double',timestamp '2019-12-26 11:50:10',timestamp '2019-12-27 11:50:10','paid');
+insert into room(members,room_type,bed_type,check_in,check_out,payment)values(3,'nonac','triple',timestamp '2019-12-10 11:50:10',timestamp '2019-12-12 11:50:10','not paid');
+insert into room(members,room_type,bed_type,check_in,check_out,payment)values(1,'nonac','single',timestamp '2019-12-28 11:50:10',timestamp '2019-12-30 11:50:10','paid');
 
 select *from room;
 ```
 ```sql
-| MEMBERS | ROOM_TYPE | BED_TYPE | FROM_DATE                    | TO__DATE                     | PAYMENT  |
+| MEMBERS | ROOM_TYPE | BED_TYPE |CHECK_IN                      | CHECK_OUT                    | PAYMENT  |
 |---------|-----------|----------|------------------------------|------------------------------|----------|
 | 2       | ac        | double   | 26-DEC-19 11.50.10.000000 AM | 27-DEC-19 11.50.10.000000 AM | paid     |
 | 3       | nonac     | triple   | 10-DEC-19 11.50.10.000000 AM | 12-DEC-19 11.50.10.000000 AM | not paid |
