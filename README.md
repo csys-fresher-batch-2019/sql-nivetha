@@ -107,18 +107,6 @@ select hotel_name,location,rating from hotel;
 | deepam inn | coimbatore | 4      |
 ```
 
-*Displaying  all username and hotel name.
-```sql
-select c.user_name ,h.hotel_name from customer_table c inner join hotel h on c.user_id=h.ur_id;
-```
-```sql
-| USER_NAME | HOTEL_NAME |
-|-----------|------------|
-| riya      | five star  |
-| ravi      | three star |
-| venkat    | deepam inn |
-```
-
 *Displaying  all hotel name and their room types.
 ```sql
 select c.hotel_name ,h.room_type from hotel c inner join room h on c.ur_id=h.us_er;
@@ -160,16 +148,6 @@ select hotel_name,location,rating from hotel  where location= 'chennai';
 | HOTEL_NAME | LOCATION | RATING |
 |------------|----------|--------|
 | five star  | chennai  | 4      |
-```
-
-*Displaying hotel names and location with their userid.
-```sql
-select hotel_name,location from hotel where ur_id=3;
-```
-```sql
-| HOTEL_NAME | LOCATION   |
-|------------|------------|
-| deepam inn | coimbatore |
 ```
 
 *Displaying username and mobile number with their city.
