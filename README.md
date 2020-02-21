@@ -98,8 +98,11 @@ create table login1(
  username varchar2(100) not null,
  password varchar2(100) not null
  );
+ * Query
 ```sql
 select *from login;
+```sql
+
 ```sql
 | username | password |
 |----------|----------|
@@ -109,23 +112,5 @@ select *from login;
 
 
 
-*Displaying userid,username and city with their emailid.
-```sql
-select user_id,user_name,city,email_id from customer_table where email_id='abceg@gmail.com';
-```
-```sql
-| USER_ID | USER_NAME | CITY   | EMAIL_ID        |
-|---------|-----------|--------|-----------------|
-| 3       | venkat    | kerala | abceg@gmail.com |
-```
 
-*Displaying members,room_type,bed_type and payment with their roomtype.
-```sql
-select members,room_type,bed_type,payment from room where room_type='ac';
-```
-```sql
-| MEMBERS | ROOM_TYPE | BED_TYPE | PAYMENT |
-|---------|-----------|----------|---------|
-| 2       | ac        | double   | paid    |
-```
 
