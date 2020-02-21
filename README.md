@@ -92,22 +92,25 @@ select *from room;
 | 2      | 101   | 3       | nonac     | king-size bed  | 01-02-20 | 04-02-20  | not paid | active        |
 | 3      | 102   | 1       | nonac     | single bed     | 28-12-19 | 31-12-19  | not paid | active        |
 ```
-####Admin Login
+
+## Feature 3:Admin login
+
 ```sql
 create table login1(
  username varchar2(100) not null,
  password varchar2(100) not null
  );
+ ```
  * Query
 ```sql
 select *from login;
-```sql
+```
 
 ```sql
 | username | password |
 |----------|----------|
 | admin    | 12345    |
-```sql
+```
 
 
 
